@@ -1,0 +1,54 @@
+Synchronous means do in order. When we think about giving instructions to a computer we generally think linearly, here's step one followed by step two and so forth. We don't move on to the next step until the previous step is finished.
+Asynchronous Steps:
+	What if a step takes longer and can be done at the same time as other steps?
+		Cake Example:
+			1) Make cake batter.
+			2) Set oven to 375, put cake in 3) Make frosting
+			4) When cooled, frost the cake.
+			in this case steps 2 & 3 are run asynchronously, otherwise the task would take longer unnecessarily (if waited for the cake to finish cooking before making the frosting) when one task isn't required before another one can be started.
+
+Asynchronous: Code involving steps that can run at the same time with the results of some steps coming in later is called asynchronous because some steps can be run in a way that doesn't block the others. Eventually the results will all be needed just not immediately, so we can let other steps happen while waiting for the stuff that takes awhile.
+
+Asynchrnous can be important to insuring programs don't look slow
+
+//////////////////////////////////////////////////////////
+Video Ch 7.3 Object Oriented Programming
+Different objects handle things differently.
+
+Want a cake object with attributes numLayers, primaryFlavor, bake(), cool(). Make that parent class that has attributes that can be applied to any cake, and then can get an instance of that object and add whatever uniqueness need to instead of recreating all these attributes for every single cake.
+	Ex. make chaocalateCake may inherit similar attributes of the cake parent class.
+
+The way JavaScript works is different from most other popular languages. It uses a model called prototypal inheritance where every object has a link to a parent object from which it inherited some data and functions and that parent has the same link to its parent, and so on. These links are called double underscore proto internally and comprise what's called the prototype chain.
+
+Ex. Cake.protoype.bake = function (temp, minutes) {
+//bake to certain temp
+//for a number of mins
+}
+
+The ex above is how you add a method to an object using its prototype, which makes it available to all objects that use that prototype wherever they are down the prototype chain.
+
+Newer versions of JavaScript add some keywords that make JavaScript's prototype stuff look more like what people coming from other languages are used to, like the class keyword.
+
+But ultimately it all gets turned into prototypes eventually. Because these are enhancements to the way the language looks but don't really change how it works underneath these kinds of additions are called syntactic sugar.
+
+/////////////////////////////////////////////////////////////////////
+//Video 7.4 Loose vs Strictly typed
+JavaScript is loosely typesd
+Getting to reuse variables and change the data type they are making JS very flexible.
+
+Strongly typed doesn't allow such things. Can help to avoid bugs though.
+
+Typescript is like JS but more strongly typed.
+
+/////////////////////////////////////////////////////////////////////
+// 7.5 TOOLS
+Libraries and Module:
+popular tools for managing multiple modules/code that relies on each other. Dynamic imports can be handled nicely by...
+	webpack
+	rollup
+
+package managers: good for including many features of js libraries that you may need (i.e. pluggins). These can install everything you need in a good file structure
+	npm
+	yarn
+
+Transpiler/compiler: needed for later JS specs to work on older browsers. These can be integrated with webpack and rollup.
